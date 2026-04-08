@@ -12,6 +12,7 @@ const userRoutes = require('./routes/user.routes');
 const serviceRoutes = require('./routes/service.routes');
 const bookingRoutes = require('./routes/booking.routes');
 const reviewRoutes = require('./routes/review.routes');
+const providerRoutes = require('./routes/provider.routes');
 
 connectToDb();
 
@@ -26,6 +27,7 @@ app.use('/api/users', userRoutes);
 app.use('/api/services', serviceRoutes);
 app.use('/api/bookings', bookingRoutes);
 app.use('/api/reviews', reviewRoutes);
+app.use('/api/providers', providerRoutes);
 
 app.get('/' , (req,res)=>{
     res.send('hey new project ');
