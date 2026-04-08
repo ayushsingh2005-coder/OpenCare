@@ -4,7 +4,8 @@ const express = require('express');
 const app = express();
 const cors = require('cors');
 const connectToDb = require('./config/db');
-const cookieParser = require('cookie-parser')
+const cookieParser = require('cookie-parser');
+const errorMiddleware = require('./middlewares/error.middleware');
 
 // Route imports
 const authRoutes = require('./routes/auth.routes');
@@ -32,6 +33,18 @@ app.use('/api/providers', providerRoutes);
 app.get('/' , (req,res)=>{
     res.send('hey new project ');
 })
+
+// 404 handler — unknown routes
+app.use((req, res) => {
+    res.status(404).json({
+        success: false,
+        message: `Route ${req.originalUrl} not found`,
+        data: null,
+    });
+});
+
+// Global error handler — must be last
+app.use(errorMiddleware);
 
 
 
