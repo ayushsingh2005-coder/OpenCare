@@ -1,0 +1,35 @@
+# Ignore node_modules folder
+/node_modules
+
+# Ignore logs and log files
+*.log
+
+# Ignore OS files
+.DS_Store
+ehthumbs.db
+Thumbs.db
+
+# Ignore Visual Studio Code files
+.vscode
+*.code-snippets
+*.vs
+*.suo
+*.ntvs* 
+*.njsproj
+*.sln
+
+# Ignore local environment configuration
+.env
+.env.local
+.env.development.local
+.env.production.local
+.env.test.local
+
+# Ignore coverage and report files
+/coverage
+/report.html
+/report.xml
+/lcov-report
+/jest-html-reporters
+/junit-viewer
+/testing/cypress/videos
