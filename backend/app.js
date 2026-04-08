@@ -11,6 +11,7 @@ const authRoutes = require('./routes/auth.routes');
 const userRoutes = require('./routes/user.routes');
 const serviceRoutes = require('./routes/service.routes');
 const bookingRoutes = require('./routes/booking.routes');
+const reviewRoutes = require('./routes/review.routes');
 
 connectToDb();
 
@@ -24,6 +25,7 @@ app.use('/api/auth', authRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/services', serviceRoutes);
 app.use('/api/bookings', bookingRoutes);
+app.use('/api/reviews', reviewRoutes);
 
 app.get('/' , (req,res)=>{
     res.send('hey new project ');
