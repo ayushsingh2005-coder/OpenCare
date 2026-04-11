@@ -4,16 +4,16 @@ import ProtectedRoute from './components/ProtectedRoute';
 import RoleRoute from './components/RoleRoute';
 import Layout from './components/Layout';
 
-// Pages
 import HomePage from './pages/HomePage';
 import ServicesPage from './pages/ServicesPage';
 import ServiceDetailPage from './pages/ServiceDetailPage';
 import NotFoundPage from './pages/NotFoundPage';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
+import UserDashboard from './pages/user/UserDashboard';       // ← add
+import UserProfile from './pages/user/UserProfile';           // ← add
 
-// Placeholders — will replace in next steps
-const UserDashboard = () => <div className="p-8 text-2xl">User Dashboard</div>;
+// Placeholder
 const ProviderDashboard = () => <div className="p-8 text-2xl">Provider Dashboard</div>;
 
 function App() {
@@ -47,6 +47,13 @@ function App() {
                     <ProtectedRoute>
                         <RoleRoute allowedRoles={['user']}>
                             <UserDashboard />
+                        </RoleRoute>
+                    </ProtectedRoute>
+                } />
+                <Route path="/user/profile" element={        
+                    <ProtectedRoute>
+                        <RoleRoute allowedRoles={['user']}>
+                            <UserProfile />
                         </RoleRoute>
                     </ProtectedRoute>
                 } />
