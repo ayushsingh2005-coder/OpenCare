@@ -10,11 +10,12 @@ import ServiceDetailPage from './pages/ServiceDetailPage';
 import NotFoundPage from './pages/NotFoundPage';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
-import UserDashboard from './pages/user/UserDashboard';       // ← add
-import UserProfile from './pages/user/UserProfile';           // ← add
-
-// Placeholder
-const ProviderDashboard = () => <div className="p-8 text-2xl">Provider Dashboard</div>;
+import UserDashboard from './pages/user/UserDashboard';
+import UserProfile from './pages/user/UserProfile';
+import ProviderDashboard from './pages/provider/ProviderDashboard';
+import ManageServices from './pages/provider/ManageServices';
+import CreateService from './pages/provider/CreateService';
+import ManageBookings from './pages/provider/ManageBookings';
 
 function App() {
     const { isAuthenticated, user } = useAuth();
@@ -42,7 +43,7 @@ function App() {
                         : <RegisterPage />
                 } />
 
-                {/* User Protected */}
+                {/* ── User Routes ── */}
                 <Route path="/user/dashboard" element={
                     <ProtectedRoute>
                         <RoleRoute allowedRoles={['user']}>
@@ -50,7 +51,7 @@ function App() {
                         </RoleRoute>
                     </ProtectedRoute>
                 } />
-                <Route path="/user/profile" element={        
+                <Route path="/user/profile" element={
                     <ProtectedRoute>
                         <RoleRoute allowedRoles={['user']}>
                             <UserProfile />
@@ -58,11 +59,39 @@ function App() {
                     </ProtectedRoute>
                 } />
 
-                {/* Provider Protected */}
+                {/* ── Provider Routes ── */}
                 <Route path="/provider/dashboard" element={
                     <ProtectedRoute>
                         <RoleRoute allowedRoles={['provider']}>
                             <ProviderDashboard />
+                        </RoleRoute>
+                    </ProtectedRoute>
+                } />
+                <Route path="/provider/services" element={
+                    <ProtectedRoute>
+                        <RoleRoute allowedRoles={['provider']}>
+                            <ManageServices />
+                        </RoleRoute>
+                    </ProtectedRoute>
+                } />
+                <Route path="/provider/services/create" element={
+                    <ProtectedRoute>
+                        <RoleRoute allowedRoles={['provider']}>
+                            <CreateService />
+                        </RoleRoute>
+                    </ProtectedRoute>
+                } />
+                <Route path="/provider/services/edit/:id" element={
+                    <ProtectedRoute>
+                        <RoleRoute allowedRoles={['provider']}>
+                            <CreateService />
+                        </RoleRoute>
+                    </ProtectedRoute>
+                } />
+                <Route path="/provider/bookings" element={
+                    <ProtectedRoute>
+                        <RoleRoute allowedRoles={['provider']}>
+                            <ManageBookings />
                         </RoleRoute>
                     </ProtectedRoute>
                 } />
