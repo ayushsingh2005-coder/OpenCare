@@ -9,10 +9,10 @@ import HomePage from './pages/HomePage';
 import ServicesPage from './pages/ServicesPage';
 import ServiceDetailPage from './pages/ServiceDetailPage';
 import NotFoundPage from './pages/NotFoundPage';
+import LoginPage from './pages/LoginPage';
+import RegisterPage from './pages/RegisterPage';
 
-// Placeholders for next steps
-const Login = () => <div className="p-8 text-2xl">Login Page</div>;
-const Register = () => <div className="p-8 text-2xl">Register Page</div>;
+// Placeholders — will replace in next steps
 const UserDashboard = () => <div className="p-8 text-2xl">User Dashboard</div>;
 const ProviderDashboard = () => <div className="p-8 text-2xl">Provider Dashboard</div>;
 
@@ -32,14 +32,14 @@ function App() {
                         ? <Navigate to={user?.role === 'provider'
                             ? '/provider/dashboard'
                             : '/user/dashboard'} replace />
-                        : <Login />
+                        : <LoginPage />
                 } />
                 <Route path="/register" element={
                     isAuthenticated
                         ? <Navigate to={user?.role === 'provider'
                             ? '/provider/dashboard'
                             : '/user/dashboard'} replace />
-                        : <Register />
+                        : <RegisterPage />
                 } />
 
                 {/* User Protected */}
