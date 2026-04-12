@@ -131,7 +131,7 @@ const ServicesPage = () => {
                                 onClick={() => handleFilter('category', cat.value)}
                                 className="flex items-center gap-1.5 px-4 py-1.5 rounded-full 
                                            text-xs font-semibold whitespace-nowrap transition-all 
-                                           duration-200 flex-shrink-0"
+                                           duration-200 shrink-0"
                                 style={{
                                     background: filters.category === cat.value
                                         ? 'var(--green-primary)'
@@ -158,7 +158,7 @@ const ServicesPage = () => {
                     {/* ── Filters Sidebar ── */}
                     <aside className={`
                         ${sidebarOpen ? 'block' : 'hidden'} md:block
-                        w-full md:w-60 flex-shrink-0
+                        w-full md:w-60 shrink-0
                     `}>
                         <div className="card p-5 sticky top-20">
                             <div className="flex items-center justify-between mb-5">
